@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 function RootLayout() {
     return (
         <>
-            <MainNavigation></MainNavigation>
+            <MainNavigation />
             <main>
                 <Outlet />
             </main>
