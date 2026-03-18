@@ -6,22 +6,23 @@ function ErrorPage(){
     const error = useRouteError();
 
     let title = 'An error occured!';
-    let mesage = 'Something went wrong.';
+    let message = 'Something went wrong.';
 
     if(error.status === 500){
-        mesage = JSON.parse(error.data).message;
+        console.log(error);
+        message = error.data ? JSON.parse(error.data).message : 'Something went wrong.';
     }
 
     if(error.status === 404){
         title = 'Not found!';
-        mesage = 'Could not find ressource or page.';
+        message = 'Could not find ressource or page.';
     }
 
     return (
         <>
             <MainNavigation />
             <PageContent title={title}>
-                <p>{mesage}</p>
+                <p>{message}</p>
             </PageContent>
         </>
     )

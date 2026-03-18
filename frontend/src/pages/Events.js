@@ -5,14 +5,6 @@ import {Suspense} from "react";
 function Events() {
     const { events } = useLoaderData();
 
-    // // if(data.isError){
-    // //     return <p>{data.message}</p>;
-    // // }
-    //
-    // const events = data.events;
-    //
-    // return <EventsList events={events} />;
-
     return <Suspense fallback={<p style={ {textAlign: "center"} }>Loading...</p>}>
         <Await resolve={events}>
             {(loadedEvents) => <EventsList events={loadedEvents} />}
