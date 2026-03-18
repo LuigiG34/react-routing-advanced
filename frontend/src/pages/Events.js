@@ -1,7 +1,7 @@
 import EventsList from '../components/EventsList';
 import { useLoaderData  } from "react-router-dom";
 
-function EventsPage() {
+function Events() {
     const data = useLoaderData();
 
     // if(data.isError){
@@ -10,14 +10,10 @@ function EventsPage() {
 
     const events = data.events;
 
-    return (
-        <>
-            <EventsList events={events} />
-        </>
-    );
+    return <EventsList events={events} />;
 }
 
-export default EventsPage;
+export default Events;
 
 export async function loader() {
     // You cannot use any eact hooks in a loader function
