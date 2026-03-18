@@ -2,7 +2,8 @@ import EventsList from '../components/EventsList';
 import {useLoaderData} from "react-router-dom";
 
 function EventsPage() {
-    const events = useLoaderData();
+    const data = useLoaderData();
+    const events = data.events;
 
     return (
         <>
@@ -14,12 +15,12 @@ function EventsPage() {
 export default EventsPage;
 
 export async function loader() {
+    // You cannot use any eact hooks in a loader function
     const response = await fetch('http://localhost:8080/events');
 
     if (!response.ok) {
         // ... handle error
     } else {
-        const resData = await response.json();
-        return resData.events;
+        return response;
     }
 }
